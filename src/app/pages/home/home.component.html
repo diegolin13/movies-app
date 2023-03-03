@@ -1,1 +1,4 @@
 <p>home works!</p>
+<div class="row" *ngIf="movies.length > 0">
+    <app-slide-show [movies]="movies"></app-slide-show>
+</div>
