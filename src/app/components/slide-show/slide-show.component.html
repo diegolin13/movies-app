@@ -5,6 +5,9 @@
       <!-- Slides -->
       <div class="swiper-slide" *ngFor="let movie of movies" [ngStyle]="{
         'background-size': 'cover',
+        'background-position': 'center center',
+        'background-repeat': 'no-repeat',
+        'background-attachment': 'fixed',
         'background-image': 'url(https://image.tmdb.org/t/p/w780' + movie.backdrop_path +')'
       }">
         <div class="movie-description">
