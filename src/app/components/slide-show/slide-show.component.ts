@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import { Movies } from 'src/app/interfaces/cartelera-response';
-import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
+import Swiper, { Navigation, Autoplay } from 'swiper';
 Swiper.use([Navigation, Autoplay]);
 
 @Component({
@@ -8,12 +8,13 @@ Swiper.use([Navigation, Autoplay]);
   templateUrl: './slide-show.component.html',
   styleUrls: ['./slide-show.component.css']
 })
-export class SlideShowComponent implements OnInit, AfterViewInit {
+export class SlideShowComponent implements AfterViewInit {
   @Input() movies: Movies[] = [];
   mySwiper?: Swiper; 
 
   ngAfterViewInit() {
     this.mySwiper = new Swiper('.swiper', {
+      slidesPerView: 'auto',
       loop: true,
       speed: 400,
       spaceBetween: 100,
@@ -21,10 +22,12 @@ export class SlideShowComponent implements OnInit, AfterViewInit {
       autoplay: {
         delay: 10000,
       },
+      breakpoints: {
+        992: {
+            spaceBetween: 20
+        }
+    }
     });
-  }
-
-  ngOnInit() {
   }
 
   onSlideNext() {
