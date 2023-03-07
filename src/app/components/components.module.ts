@@ -6,6 +6,7 @@ import { SlideShowComponent } from './slide-show/slide-show.component';
 import { PeliculasPosterGridComponent } from './peliculas-poster-grid/peliculas-poster-grid.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { RatingModule } from 'ng-starrating';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
@@ -20,6 +21,7 @@ import { RatingModule } from 'ng-starrating';
     CommonModule,
     RouterModule,
     RatingModule,
+    PipesModule,
   ],
   exports: [
     NavbarComponent,
