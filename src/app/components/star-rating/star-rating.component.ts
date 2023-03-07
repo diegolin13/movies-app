@@ -7,8 +7,5 @@ import { Component, Input} from '@angular/core';
 })
 export class StarRatingComponent {
   @Input() raiting_value: number = 0;
-  constructor() {
-    console.log(this.raiting_value)
-  }
 
 }
