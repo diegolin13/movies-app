@@ -50,4 +50,8 @@ export class PeliculasService {
       map((resp) => resp.results)
     )
   }
+
+  resetCartelera() {
+    this.carteleraPage = 1;
+  }
 }
