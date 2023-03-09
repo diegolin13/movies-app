@@ -4,6 +4,7 @@ import {Observable, of} from 'rxjs';
 import { CarteleraResponse, Movies } from '../interfaces/cartelera-response';
 import {map, tap} from 'rxjs/operators';
 import { MovieResponse } from '../interfaces/movie-response';
+import { Cast, CreditsResponse } from '../interfaces/credits-response';
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +58,15 @@ export class PeliculasService {
       params: this.params
     })
 
+  }
+
+  getMovieCast(id_movie: string): Observable<Cast[]>{
+    const {page, ...params} = this.params;
+    return this.http.get<CreditsResponse>(`${this.baseUrl}/movie/${id_movie}/credits`, {
+      params
+    }).pipe(
+      map(resp => resp.cast)
+    );
   }
 
   resetCartelera() {

@@ -33,4 +33,10 @@
             </div>
         </div>
     </div>
+
+    <div class="row mt-5 mb-5" *ngIf="cast.length > 0">
+        <div class="col">
+            <app-cast-slider [cast]="cast"></app-cast-slider>
+        </div>
+    </div>
 </div>
