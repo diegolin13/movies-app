@@ -14,6 +14,7 @@ export class PeliculaComponent implements OnInit {
 
   public movie!: MovieResponse;
   public cast: Cast[] = [];
+  public loading = true;
 
   constructor(private activatedRoute: ActivatedRoute,
               private peliService: PeliculasService,
@@ -25,11 +26,14 @@ export class PeliculaComponent implements OnInit {
     if (!id_movie) return;
     this.peliService.movieById(id_movie).subscribe((resp) => {
       this.movie = resp;
+      this.peliService.getMovieCast(id_movie).subscribe(resp => {
+        this.cast = resp.filter(actor => actor.profile_path !== null);
+        this.loading = false;
+      });
     }, (err) => {
       this.router.navigate(['/home']);
       return;
     });
-    this.peliService.getMovieCast(id_movie).subscribe(resp => this.cast = resp.filter(actor => actor.profile_path !== null));
   }
 
   goBack(){

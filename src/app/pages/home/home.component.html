@@ -1,10 +1,10 @@
-<h1>Lo más reciente</h1>
+<h1 class="text-center mb-5">📽 Movie Finder</h1>
 
-<div *ngIf="movies.length > 0">
+<div *ngIf="movies.length > 0" class="animate__animated animate__fadeIn">
     <app-slide-show [movies]="moviesSlides"></app-slide-show>
 </div>
 
-<h1 class="mt-5">Peliculas</h1>
+<h1 class="mt-5 animate__animated animate__fadeInDown">🍿 Títulos recientes</h1>
 <div *ngIf="movies.length > 0">
     <app-peliculas-poster-grid [movies]="movies"></app-peliculas-poster-grid>
 </div>

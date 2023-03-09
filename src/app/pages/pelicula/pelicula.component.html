@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="row" *ngIf="movie">
+<div class="container animate__animated animate__fadeInUp">
+    <div class="row" *ngIf="movie && !loading">
         <div class="col-md-6">
             <img [src]="movie.poster_path | poster" 
                  [alt]="movie.title"
@@ -34,9 +34,15 @@
         </div>
     </div>
 
-    <div class="row mt-5 mb-5" *ngIf="cast.length > 0">
+    <div class="row mt-5 mb-5" *ngIf="cast.length > 0 && !loading">
         <div class="col">
             <app-cast-slider [cast]="cast"></app-cast-slider>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-5" *ngIf="loading">
+        <div class="spinner-grow text-light " role="status">
+            <span class="visually-hidden">Loading...</span>
         </div>
     </div>
 </div>

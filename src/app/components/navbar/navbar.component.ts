@@ -10,9 +10,10 @@ export class NavbarComponent {
 
   constructor(private router: Router) {}
 
-  buscarPelicula(text_term: string) {
-    const texto = text_term.trim();
+  buscarPelicula(text_term: HTMLInputElement) {
+    const texto = text_term.value.trim();
     if(texto.length === 0) return;
+    text_term.value = '';
     this.router.navigate(['/buscar', texto]);
   }
 
