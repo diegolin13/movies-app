@@ -27,6 +27,7 @@ import { PipesModule } from '../pipes/pipes.module';
     NavbarComponent,
     SlideShowComponent,
     PeliculasPosterGridComponent,
+    StarRatingComponent,
   ],
 })
 export class ComponentsModule { }

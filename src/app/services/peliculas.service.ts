@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
 import { CarteleraResponse, Movies } from '../interfaces/cartelera-response';
 import {map, tap} from 'rxjs/operators';
+import { MovieResponse } from '../interfaces/movie-response';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +50,13 @@ export class PeliculasService {
     }).pipe(
       map((resp) => resp.results)
     )
+  }
+
+  movieById(id_movie: string): Observable<MovieResponse> {
+    return this.http.get<MovieResponse>(`${this.baseUrl}/movie/${id_movie}`, {
+      params: this.params
+    })
+
   }
 
   resetCartelera() {

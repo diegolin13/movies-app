@@ -11,6 +11,7 @@ import { PeliculasService } from 'src/app/services/peliculas.service';
 export class BuscarComponent implements OnInit{
   texto_busqueda : string = '';
   resultados : Movies[] = [];
+  loading = true;
 
   constructor( private activatedRoute: ActivatedRoute, 
                private peliService: PeliculasService ) {}
@@ -19,6 +20,7 @@ export class BuscarComponent implements OnInit{
     this.activatedRoute.params.subscribe((params: any) => {
       this.texto_busqueda = params.texto;
       this.peliService.findMovie(params.texto).subscribe(resp => this.resultados = resp);
+      this.loading = false;
     });
   }
 
