@@ -31,16 +31,27 @@
                     </button>
                 </div>
             </div>
+
+
+            <div class="row mt-5">
+                <div class="col">
+                    <app-cast-slider [cast]="cast"></app-cast-slider>
+                </div>
+            </div>
+
+            <!-- <div class="col mb-0" *ngIf="cast.length > 0 && !loading">
+                <app-cast-slider [cast]="cast"></app-cast-slider>
+            </div> -->
         </div>
     </div>
 
-    <div class="row mt-5 mb-5" *ngIf="cast.length > 0 && !loading">
+    <!-- <div class="row mt-5 mb-5" *ngIf="cast.length > 0 && !loading">
         <div class="col">
             <app-cast-slider [cast]="cast"></app-cast-slider>
         </div>
-    </div>
+    </div> -->
 
-    <div class="d-flex justify-content-center mt-5" *ngIf="loading">
+    <div class="d-flex justify-content-center" *ngIf="loading">
         <div class="spinner-grow text-light " role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
